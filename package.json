@@ -1,22 +1,25 @@
 {
-  "name": "sorteador-meetup",
-  "version": "0.1.0",
-  "author": {
-    "name": "Diego Martins de Pinho",
-    "email": "diegomartinsdepinho@msn.com",
-    "url": "http://www.diegopinho.com.br"
-  },
-  "devDependencies": {
-    "react-scripts": "1.0.13"
-  },
+  "name": "sorteador-meetups-server",
+  "version": "0.0.1",
+  "private": true,
   "dependencies": {
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "babel-cli": "6.14.0",
+    "babel-core": "6.14.0",
+    "body-parser": "^1.17.2",
+    "cheerio": "^0.22.0",
+    "express": "4.13.3",
+    "pg": "6.2.2",
+    "pg-pool": "^1.7.1",
+    "request": "^2.81.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "nodemon server.js --exec babel-node",
+    "client": "babel-node start-client.js",
+    "dev": "echo \"This command has been deprecated. Use 'npm start'\" && exit 1"
+  },
+  "devDependencies": {
+    "concurrently": "3.1.0",
+    "nodemon": "^1.12.0"
   }
 }

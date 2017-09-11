@@ -1,0 +1,27 @@
+{
+  "name": "sorteador-meetup",
+  "version": "0.1.0",
+  "proxy": "http://localhost:3001/",
+  "author": {
+    "name": "Diego Martins de Pinho",
+    "email": "diegomartinsdepinho@msn.com",
+    "url": "http://www.diegopinho.com.br"
+  },
+  "devDependencies": {
+    "react-scripts": "1.0.13"
+  },
+  "dependencies": {
+    "es6-promise": "^4.1.1",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "request": "^2.81.0",
+    "superagent": "^3.6.0",
+    "superagent-promise": "^1.1.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
