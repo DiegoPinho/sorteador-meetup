@@ -3,8 +3,26 @@ import logo from './logo.svg';
 import './App.css';
 
 import BarraSorteio from './BarraSorteio';
+import AreaSorteado from './AreaSorteado';
 
 class App extends Component {
+  
+  constructor(props) {
+    super(props);
+    this.state = {
+      sorteado: null
+    }
+
+    this.atualizarSorteado = this.atualizarSorteado.bind(this);
+  }
+
+  atualizarSorteado(sorteado) {
+    console.log('sorteado', sorteado);
+    this.setState({
+      sorteado: JSON.parse(sorteado)
+    })
+  }
+  
   render() {
     return (
       <div className="App">
@@ -16,7 +34,8 @@ class App extends Component {
           Instruções: Para realizar o sorteio, coloque a url do meetup onde estão os participantes.
         </p>
         
-        <BarraSorteio />
+        <BarraSorteio callback={this.atualizarSorteado} />
+        <AreaSorteado sorteado={this.state.sorteado} />
 
       </div>
     );

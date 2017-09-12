@@ -17,8 +17,6 @@ if (process.env.NODE_ENV === 'production') {
     app.use(express.static('client/build'));
 }
 
-// http://stackoverflow.com/questions/12693947/jquery-ajax-how-to-send-json-instead-of-querystring
-// http://stackoverflow.com/questions/18310394/no-access-control-allow-origin-node-apache-port-issue
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT');
@@ -27,15 +25,12 @@ app.use((req, res, next) => {
     next();
 });
 
-// ROUTES ======================================================================
-
 app.post('/api/sortear', (req, res) => {
     const eventoURL = req.body.url;
     request(eventoURL, function(error, response, html) {
-        sortear(error, response, html);
+        const sorteado = sortear(error, response, html);
+        res.json(sorteado);
     });
-
-    res.json({sucesso: 'ok'});
 });
 
 function sortear(error, response, html) {
@@ -43,15 +38,30 @@ function sortear(error, response, html) {
         console.log(error);
     }
     
+    let participantes = [];
+    
     const $ = cheerio.load(html);
-    console.log($('ul.attendees-list li').each(element => {
-        const div = $(element).find('div.attendee-item');
-        const avatar = div.html();
+    $('ul.attendees-list li.attendee-item').each((i, element) => {
+        const cheerioElement = $(element);
+        const avatar = cheerioElement.find('.avatar');
+        const avatarPathRaw = avatar.attr('style');
+        const avatarImage = avatarPathRaw.substring(avatarPathRaw.indexOf('(') + 1, avatarPathRaw.indexOf(')'));
+        const avatarName = avatar.text();
         
-        
-        console.log(avatar + '\n');
-    }));
+        participantes.push({'nome': avatarName, 'avatar': avatarImage});
+    });
+
+    const numParticipantes = participantes.length;
+    const sorteado = getRandomInt(0, numParticipantes);
+
+    return JSON.stringify(participantes[sorteado]);
 }
+
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min)) + min;
+  }
 
 app.listen(app.get('port'), () => {
     console.log(`Find the server at: http://localhost:${app.get('port')}/`); // eslint-disable-line no-console
