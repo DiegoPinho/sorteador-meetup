@@ -1,8 +1,10 @@
 # Sorteador para Meetups
 
-Quantas vezes você já foi a um Meetup (ou promoveu um) e não havia maneira prática de fazer um sorteio para os participantes? Pois bem, esta problema agora está no passado, porque agora existe o Sorteador para Meetups! Ele funciona a base da técnica de _web scraping_, ou seja, da extração de informações da internet.
+!["preview"](preview.jpg)
 
-Como a API do Meetup nos impede de buscar informações sobre os participantes de um Meetup (ateende) - a não ser que você seja um dos organizadores - desenvolvemos esta ferramenta para que qualquer um possa utilizá-la facilmente.
+Quantas vezes você já foi a um Meetup (ou promoveu um) e não havia maneira prática de fazer um sorteio para os participantes? Pois bem, este problema agora está no passado, porque agora existe o Sorteador para Meetups! Ele funciona a base da técnica de _web scraping_, ou seja, da extração de informações de páginas da internet.
+
+Como a API do Meetup nos impede de buscar informações sobre os participantes de um Meetup (_ateendes_) - a não ser que você seja um dos organizadores - desenvolvemos esta ferramenta para que qualquer um possa utilizá-la facilmente.
 
 ## Funcionamento
 

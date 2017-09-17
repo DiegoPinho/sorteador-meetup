@@ -21,12 +21,11 @@ class AreaSorteado extends Component {
 
         if(this.props.sorteado) {
             const {nome,avatar} = this.props.sorteado;
-            console.log(nome,avatar);
             return (
                 <div>
                     <h1>O sorteado foi...</h1>
                     <img src={avatar} alt="sorteado" />
-                    <h3>Nome: {nome}</h3>
+                    <h3>{nome}</h3>
                 </div>
             )
         } else {
