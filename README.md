@@ -1,5 +1,7 @@
 # Sorteador para Meetups
 
+Disponível em: https://sorteador-meetup.herokuapp.com/
+
 !["preview"](preview.jpg)
 
 Quantas vezes você já foi a um Meetup (ou promoveu um) e não havia maneira prática de fazer um sorteio para os participantes? Pois bem, este problema agora está no passado, porque agora existe o Sorteador para Meetups! Ele funciona a base da técnica de _web scraping_, ou seja, da extração de informações de páginas da internet.
