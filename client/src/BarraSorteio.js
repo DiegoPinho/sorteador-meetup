@@ -26,6 +26,8 @@ class BarraSorteio extends Component {
     }
     
     sortear() {
+        this.props.status(); // diz ao app que agora está sorteando
+        
         const url = this.state.input;
         request.post('/api/sortear')
             .send({url})
@@ -37,8 +39,8 @@ class BarraSorteio extends Component {
     render() {
         return (
             <div>
-                <input type="text" value={this.state.value} onChange={this.handleChange} />
-                <button type="button" onClick={this.sortear}>sortear</button>
+                <div><input type="text" value={this.state.value} onChange={this.handleChange} /></div>
+                <div><button className="button" type="button" onClick={this.sortear}>Sortear!</button></div>
             </div>
         )
     }

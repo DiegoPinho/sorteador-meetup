@@ -64,5 +64,5 @@ function getRandomInt(min, max) {
   }
 
 app.listen(app.get('port'), () => {
-    console.log(`Find the server at: http://localhost:${app.get('port')}/`); // eslint-disable-line no-console
+    console.log(`Servidor disponível em: http://localhost:${app.get('port')}/`); // eslint-disable-line no-console
 });

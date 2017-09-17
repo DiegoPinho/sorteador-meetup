@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import Rolling from './Rolling.svg';
 
 class AreaSorteado extends Component {
     
@@ -9,18 +10,30 @@ class AreaSorteado extends Component {
     }
     
     showSorteado() {
+        if(this.props.sorteando) {
+            return (
+                <div>
+                    <h1>Sorteando...</h1>
+                    <img src={Rolling} alt="loading" />
+                </div>
+            )
+        }
+
         if(this.props.sorteado) {
             const {nome,avatar} = this.props.sorteado;
             console.log(nome,avatar);
             return (
                 <div>
+                    <h1>O sorteado foi...</h1>
                     <img src={avatar} alt="sorteado" />
                     <h3>Nome: {nome}</h3>
                 </div>
             )
         } else {
             return (
-                <div>Realize o sorteio!</div>
+                <div>
+                    <h3>Realize o sorteio!</h3>
+                </div>
             )
         }
     }
